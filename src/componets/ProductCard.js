@@ -5,6 +5,7 @@ import { useProducts } from '../ProductContex/Contex';
 
 const ProductCard = ({ product }) => {
     const { dispatch } = useProducts();
+    const location = window.location.pathname;
     return (
         <div
             className='shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900'
@@ -23,10 +24,13 @@ const ProductCard = ({ product }) => {
                 </ul>
             </div>
             <div className='flex gap-2 mt-5'>
-                <button className='bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold'
+                {location === '/card' ? <button className='bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold'
+                    onClick={() => dispatch({ type: actionType.ADD_TO_CARD, payload: product })}>
+                    Remove to cart
+                </button> : <button className='bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold'
                     onClick={() => dispatch({ type: actionType.ADD_TO_CARD, payload: product })}>
                     Add to cart
-                </button>
+                </button>}
                 <button
                     title='Add to wishlist'
                     className='bg-indigo-500  py-1 px-2 rounded-full'

@@ -4,4 +4,5 @@ export const actionType = {
     FETCHING_ERROR: "FETCHING_ERROR",
     ADD_TO_CARD: "ADD_TO_CARD",
     ADD_TO_WISHLIST: "ADD_TO_WISHLIST",
+    REMOVE_TO_CARD: "REMOVE_TO_CARD"
 }
