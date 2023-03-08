@@ -2,9 +2,9 @@ import React from 'react';
 import ProductCard from '../componets/ProductCard';
 import { useProducts } from '../ProductContex/Contex';
 
-const Card = () => {
-    const { state: { loading, error, card } } = useProducts()
-    console.log(card)
+const Wishlist = () => {
+    const { state: { products, loading, error, wishlist } } = useProducts();
+
     let content;
 
     if (loading) {
@@ -13,11 +13,11 @@ const Card = () => {
     if (error) {
         content = <p>Somthing went wrong.</p>
     }
-    if (!loading && !error && card.length === 0) {
+    if (!loading && !error && wishlist.length === 0) {
         content = <p>Product is not found</p>
     }
-    if (!loading && !error && card.length) {
-        content = card.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
+    if (!loading && !error && wishlist.length) {
+        content = wishlist.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
     }
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl gap-14 mx-auto my-10'>
@@ -26,4 +26,4 @@ const Card = () => {
     );
 };
 
-export default Card;
+export default Wishlist;

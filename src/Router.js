@@ -1,3 +1,5 @@
+import Wishlist from "./Pages/Wishlist";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("./layout/Main");
 const { default: About } = require("./Pages/About");
@@ -19,6 +21,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/card', element: <Card></Card>
+            },
+            {
+                path: '/wishlist', element: <Wishlist></Wishlist>
             },
         ]
     }

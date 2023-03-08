@@ -8,6 +8,7 @@ const Contex = ({ children }) => {
 
     const [state, dispatch] = useReducer(productReducer, initialState)
 
+
     useEffect(() => {
         dispatch({ type: actionType.FETCHING_START })
         fetch("https://moon-tech-server-pied.vercel.app/products")
@@ -18,6 +19,7 @@ const Contex = ({ children }) => {
 
     const data = {
         state,
+        dispatch,
     }
 
     return (
